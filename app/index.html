@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Guide — GTA VI</title>
+<meta name="description" content="An offline tracker and guide for all 55 PlayStation 5 trophies of Grand Theft Auto VI: checklist, roadmap to the platinum, missables, and a cited guide to each trophy.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="topbar">
+  <div class="brand">
+    <h1>Leonida Trophy Guide</h1>
+    <p class="tagline">Grand Theft Auto VI &middot; PlayStation 5 &middot; 55 trophies: 1 platinum, 2 gold, 6 silver, 46 bronze</p>
+  </div>
+  <div id="progressBox" class="progress-box" aria-live="polite">
+    <div class="progress-count"><strong id="earnedCount">0</strong><span> / 55 earned</span></div>
+    <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
+    <div class="progress-sub"><span id="progressPct">0%</span><span id="platinumHint">Platinum: Vice Got a Price!</span></div>
+  </div>
+</header>
+
+<nav id="mainNav" aria-label="Guide sections">
+  <a href="#/" data-view="checklist" class="nav-link">Checklist</a>
+  <a href="#/roadmap" data-view="roadmap" class="nav-link">Roadmap to Platinum</a>
+  <a href="#/missables" data-view="missables" class="nav-link">Missables <span id="missableNavCount" class="nav-badge">1</span></a>
+  <a href="#/about" data-view="about" class="nav-link">About &amp; Sources</a>
+</nav>
+
+<div id="toolbar" class="toolbar">
+  <label class="search-label">Search <input id="searchInput" type="search" placeholder="Trophy name or description…" autocomplete="off"></label>
+  <div id="kindFilters" class="kind-filters" role="group" aria-label="Filter by kind"></div>
+  <label class="grade-label">Grade
+    <select id="gradeFilter">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label class="check-label"><input id="earnedOnly" type="checkbox"> Earned only</label>
+  <label class="check-label"><input id="spoilerToggle" type="checkbox" checked> Hide story spoilers</label>
+  <div class="toolbar-actions">
+    <button id="exportBtn" type="button">Export progress</button>
+    <button id="importBtn" type="button">Import progress</button>
+    <input id="importFile" type="file" accept=".json,application/json" hidden>
+  </div>
+</div>
+
+<main id="main">
+  <section id="checklistView" class="view">
+    <p id="listSummary" class="list-summary"></p>
+    <ul id="trophyList" class="trophy-list"></ul>
+    <p id="emptyNote" class="empty-note" hidden>No trophies match these filters. Clear the search or pick another kind.</p>
+  </section>
+
+  <section id="detailView" class="view" hidden>
+    <button id="backBtn" type="button">&larr; Back to checklist</button>
+    <article id="trophyDetail" class="trophy-detail"></article>
+  </section>
+
+  <section id="roadmapView" class="view" hidden>
+    <h2>Roadmap to the Platinum</h2>
+    <p class="lede">One playthrough, about 200 hours, difficulty 4/10. No online trophies, no difficulty settings, no mission medals — the run is long, not hard. <a href="https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/" target="_blank" rel="noopener">PowerPyx — GTA 6 Trophy Guide &amp; Roadmap</a>.</p>
+    <ol id="roadmapSteps" class="roadmap-steps"></ol>
+    <h3>The 100% checklist, in brief</h3>
+    <p>After the story, open <strong>Progress &gt; Stats &gt; 100% Completion</strong>. The thresholds are lenient — about 60% true completion. You need <strong>70 of the 80 Challenges</strong>; most side quests are not required. The tasks that need <em>everything</em> are Robberies, Underwater Discoveries, Shooting Ranges, Drone Races and Bret's Quests. You only need to scan <strong>200 of 277</strong> base-model vehicles and study <strong>100 of 255</strong> animals through the binoculars. Source: <a href="https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/" target="_blank" rel="noopener">PowerPyx</a>.</p>
+    <h3>Three rules for the whole run</h3>
+    <ul>
+      <li><strong>Keep manual saves.</strong> There is no mission replay and no New Game Plus. Save at the start of every chapter and once more before the final mission.</li>
+      <li><strong>Do the Chapter 1 meditation.</strong> It is the one trophy that can be missed — see the <a href="#/missables">Missables</a> page.</li>
+      <li><strong>Leave cheats off.</strong> Turning on a cheat disables trophies (and you cannot save afterwards). Cheats only unlock after the story anyway.</li>
+    </ul>
+  </section>
+
+  <section id="missablesView" class="view" hidden>
+    <h2>Missable trophies</h2>
+    <p class="lede">Only <strong>one</strong> trophy is reported as possibly missable. Every story trophy unlocks automatically and cannot be missed, and everything the 100% checklist needs stays reachable in free-roam after the story. Sources: <a href="https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/" target="_blank" rel="noopener">PowerPyx</a> (1 potentially missable) and Push Square (none known), via <a href="https://www.planetgta6.com/en/gta-6-trophies/" target="_blank" rel="noopener">Planet GTA 6</a>.</p>
+    <div id="missableList" class="missable-list"></div>
+    <h3>General save advice</h3>
+    <p>Because there is no mission replay, keep a manual save at the start of every chapter and one before the final mission. If you miss the Chapter 1 meditation, that save is your only way back without starting over.</p>
+  </section>
+
+  <section id="aboutView" class="view" hidden>
+    <h2>About &amp; Sources</h2>
+    <p>This guide is an offline web app: it runs entirely from its own files, saves your checklist in this browser only (localStorage), and makes no network request. Export downloads your progress as a file; import reads one back. Nothing leaves your machine.</p>
+    <h3>Where the facts come from</h3>
+    <ul>
+      <li><strong>Trophy names, descriptions and grades</strong> — the official PlayStation 5 list as published on PlayStation Network, taken 18 November 2026 from <a href="https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" target="_blank" rel="noopener">Exophase</a> and cross-checked with <a href="https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" target="_blank" rel="noopener">PSNProfiles</a> and TrueAchievements. The same 55 exist as Xbox achievements worth 1,000 Gamerscore.</li>
+      <li><strong>Roadmap, missable and 100% checklist details</strong> — <a href="https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/" target="_blank" rel="noopener">PowerPyx — GTA 6 Trophy Guide &amp; Roadmap</a> (difficulty 4/10, about 200 hours, one playthrough, no online trophies).</li>
+      <li><strong>Hidden-trophy split (27 visible, 28 hidden)</strong> — <a href="https://www.planetgta6.com/en/gta-6-trophies/" target="_blank" rel="noopener">Planet GTA 6 — GTA 6 Trophies</a>, cross-checked with Exophase and PSNProfiles.</li>
+      <li><strong>Each trophy's guide</strong> is written for this guide in our own words. Where a method has not yet been confirmed in a guide we trust, the guide says so plainly instead of inventing a location or step.</li>
+    </ul>
+    <h3>What this guide is not</h3>
+    <p>It is not affiliated with Rockstar Games, Sony or PlayStation. It shows no Rockstar logo, official artwork or game screenshots. Trophy names and descriptions are shown as PlayStation publishes them; everything else is original.</p>
+  </section>
+</main>
+
+<footer id="pageFooter">
+  <p>Leonida Trophy Guide — an unofficial, offline guide to the 55 PlayStation 5 trophies of Grand Theft Auto VI. Data: Exophase / PSNProfiles (18 Nov 2026). Roadmap: PowerPyx. Not affiliated with Rockstar Games.</p>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

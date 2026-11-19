@@ -1,0 +1,257 @@
+/* Leonida Trophy Guide — own design. Warm paper, dark navy header, sunset accent. */
+:root {
+  --paper: #f7f4ec;
+  --card: #fffdf7;
+  --ink: #20242b;
+  --muted: #5d6470;
+  --line: #ddd6c4;
+  --navy: #14202b;
+  --navy-ink: #e9e4d8;
+  --accent: #e8642a;
+  --accent-dark: #b84a1d;
+  --teal: #0e7c6b;
+  --gold: #b8860b;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+a { color: var(--accent-dark); }
+a:visited { color: #8a5a2b; }
+
+/* Header with progress */
+#topbar {
+  background: var(--navy);
+  color: var(--navy-ink);
+  padding: 18px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  letter-spacing: 0.5px;
+}
+
+.brand .tagline { margin: 4px 0 0; color: #b9c2cc; font-size: 14px; }
+
+.progress-box { min-width: 260px; flex: 1 1 280px; max-width: 420px; }
+.progress-count { font-size: 20px; }
+.progress-count strong { font-size: 28px; }
+.progress-bar {
+  height: 10px;
+  background: #2c3a48;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 6px 0;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+.progress-sub {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #b9c2cc;
+}
+
+/* Navigation */
+#mainNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  background: #0e1822;
+  padding: 0 16px;
+}
+.nav-link {
+  color: #cfd6de;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-bottom: 3px solid transparent;
+}
+.nav-link:hover { color: #fff; }
+.nav-link.active { color: #fff; border-bottom-color: var(--accent); }
+.nav-badge {
+  background: var(--accent);
+  color: #fff;
+  border-radius: 10px;
+  padding: 0 7px;
+  font-size: 12px;
+  margin-left: 2px;
+}
+
+/* Toolbar: search, filters, spoiler, export/import */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  align-items: center;
+  padding: 14px 24px;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+}
+.search-label input[type="search"] {
+  width: 260px;
+  max-width: 70vw;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 15px;
+}
+.kind-filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.kind-chip {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.kind-chip:hover { border-color: var(--accent); }
+.kind-chip.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+.grade-label select {
+  padding: 7px 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 15px;
+  background: #fff;
+}
+.check-label { font-size: 14px; white-space: nowrap; }
+.toolbar-actions { margin-left: auto; display: flex; gap: 8px; }
+.toolbar-actions button, #backBtn {
+  padding: 8px 14px;
+  border: 1px solid var(--navy);
+  background: #fff;
+  color: var(--navy);
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.toolbar-actions button:hover, #backBtn:hover { background: var(--navy); color: #fff; }
+
+/* Main views */
+#main { max-width: 1080px; margin: 0 auto; padding: 20px 24px 40px; }
+.view h2 { font-family: Georgia, serif; font-size: 26px; margin: 4px 0 10px; }
+.view h3 { font-size: 19px; margin: 22px 0 8px; }
+.lede { font-size: 17px; color: #33383f; }
+.list-summary { color: var(--muted); margin: 0 0 12px; }
+.empty-note { color: var(--muted); font-style: italic; }
+
+/* Trophy checklist rows */
+.trophy-list { list-style: none; margin: 0; padding: 0; }
+.trophy-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.trophy-row:hover { border-color: var(--accent); }
+.trophy-row.earned { background: #eef6f1; }
+.trophy-row.earned .trophy-name { text-decoration: line-through; text-decoration-thickness: 1px; }
+.trophy-check {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  margin-top: 2px;
+  accent-color: var(--teal);
+  cursor: pointer;
+}
+.trophy-main { flex: 1; min-width: 0; }
+.trophy-name { font-weight: 700; font-size: 16px; }
+.trophy-desc { color: var(--muted); font-size: 14px; margin-top: 2px; }
+.trophy-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.tag {
+  font-size: 12px;
+  border-radius: 999px;
+  padding: 1px 8px;
+  background: #ece7d8;
+  color: #4c4a3f;
+  white-space: nowrap;
+}
+.tag.missable { background: #fbe3d8; color: #8a2f10; font-weight: 700; }
+.tag.count { background: #e2ecf5; color: #24405e; }
+.medal {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  margin-top: 2px;
+}
+.medal.platinum { background: #dfe8f2; color: #3c5a78; border: 2px solid #9db4c8; }
+.medal.gold { background: #f7e3a1; color: #7a5b00; border: 2px solid #d4af37; }
+.medal.silver { background: #e8e8e8; color: #555; border: 2px solid #aeb6bf; }
+.medal.bronze { background: #f0d9c0; color: #6b4423; border: 2px solid #c98b5e; }
+.spoiler-hidden .trophy-name, .spoiler-hidden .trophy-desc { color: var(--muted); font-style: italic; }
+
+/* Detail pane */
+.trophy-detail {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+}
+.trophy-detail h2 { margin-top: 0; }
+.detail-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 14px; }
+.detail-guide { font-size: 17px; }
+.detail-guide p { margin: 0 0 10px; }
+.missable-callout {
+  background: #fdf0e8;
+  border-left: 4px solid var(--accent);
+  padding: 10px 14px;
+  margin: 12px 0;
+}
+.detail-sources { font-size: 14px; color: var(--muted); }
+.detail-sources ul { margin: 6px 0; padding-left: 20px; }
+#backBtn { margin-bottom: 12px; }
+
+/* Roadmap and missables */
+.roadmap-steps { padding-left: 22px; }
+.roadmap-steps li { margin-bottom: 14px; }
+.roadmap-steps li::marker { font-weight: 800; color: var(--accent-dark); }
+.roadmap-steps h3 { display: inline; font-size: 17px; }
+.missable-list .trophy-row { cursor: default; }
+
+/* Footer */
+#pageFooter {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  padding: 16px 24px 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .brand h1 { font-size: 24px; }
+  #main { padding: 14px 14px 28px; }
+  .toolbar { padding: 12px 14px; }
+  .search-label input[type="search"] { width: 100%; }
+}
